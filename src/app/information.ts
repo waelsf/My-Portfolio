@@ -11,7 +11,7 @@ export const information= [
 
   {
 
-    description: 'desgining'
+    description: 'designing'
   },
 
   {

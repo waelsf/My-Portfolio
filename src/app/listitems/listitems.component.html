@@ -61,49 +61,42 @@
 </div>
 
 
-<!--My Testimonials  -->
-<div class="testimonials">
-
-  <div class="main--header--of--testimonials">
-    <h1 class="first--header">Testimonials</h1>
-    <h2 class="second--header">People I've worked with have said some nice things...</h2>
-
-  </div>
-
-  <div class="carousel" style="display: inline-block;">
-    <img class="carousel--images " src="assets/pascal.png">
-    <p class="carousel--paragraph">
-      “Matt was a real
-      pleasure to work with and we look forward to working with
-      him again.
-      He’s definitely the kind of designer you can trust with
-      a project from start to finish.”
-    </p>
-    <div class="carousel--bottom--header">
-      <h2 class="headers--of--carousel">Pascal Tremblay</h2>
-      <h3 class="headers--of--carousel">Creative Lead, Good Kind</h3>
-    </div>
-  </div>
-
-  <div class="carousel">
-    <img class="carousel--images" src="assets/alvin.png">
-    <p class="carousel--paragraph">
-      “Matt's a clear communicator
-      with the tenacity and confidence
-      to really dig in to tricky design
-      scenarios and the collaborative
-      friction that's needed to produce excellent work.”
-    </p>
-    <div class="carousel--bottom--header">
-      <h2 class="headers--of--carousel">Alvin Engler</h2>
-      <h3 class="headers--of--carousel">Sr. Systems Developer, Domain7</h3>
-    </div>
-  </div>
-
-  <div class="dot-container">
-    <span class="dot" onclick="currentSlide(1)"></span>
-    <span class="dot" onclick="currentSlide(2)"></span>
-  </div>
 
 
-</div>
+
+    <p-carousel
+    [value]="products"
+    [numVisible]="1"
+    [numScroll]="1"
+    [circular]="false"
+    [responsiveOptions]="responsiveOptions"
+  >
+    <ng-template pTemplate="header"> </ng-template>
+    <ng-template let-product pTemplate="item">
+      <div class="product-item">
+        <div class="product-item-content">
+          <div class="mb-3">
+            <h1>Testimonials</h1>
+            <h2>People I've worked with have said some nice things...</h2>
+
+            <img
+              src="assets/{{ product.image }}"
+              [alt]="product.name"
+              class="product-image"
+            />
+          </div>
+          <div>
+            <div class="desciption">
+              <span
+                [class]="
+                  'product-badge status-' + product.inventoryStatus.toLowerCase()
+                "
+                >{{ product.inventoryStatus }}
+              </span>
+            </div>
+            <h4 class="mb-1">{{ product.name }}</h4>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </p-carousel>

@@ -6,8 +6,15 @@ import { TopComponent } from './top/top.component';
 import { MiddleComponent } from './middle/middle.component';
 import { ListitemsComponent } from './listitems/listitems.component';
 import { BottomComponent } from './bottom/bottom.component';
-import {CardModule} from 'primeng/card';
-import {ButtonModule} from 'primeng/button';
+import { CardModule } from 'primeng/card';
+import { CarouselModule } from 'primeng/carousel';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ButtonModule } from 'primeng/button';
+import { ToastModule } from 'primeng/toast';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { ProductService } from './productservice';
+
 
 @NgModule({
   declarations: [
@@ -16,15 +23,19 @@ import {ButtonModule} from 'primeng/button';
     MiddleComponent,
     ListitemsComponent,
     BottomComponent,
-
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CardModule,
+    CarouselModule,
     ButtonModule,
+    ToastModule,
+    FormsModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [ProductService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
